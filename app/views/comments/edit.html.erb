@@ -1,0 +1,6 @@
+<h1>Edit Comment</h1>
+<%= simple_form_for([@game, @comment]) do |f| %>
+    <%= f.input :rating, label: "Edit Rating" %>
+    <%= f.input :content, label: "Comment" %>
+    <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Welcome to the Games Index!</h1>
+<br>
+    <% @games.each do |game| %>
+        <h2><%= game.title %></h2>
+        <p>
+            Rating: <%= game.rating %><br>
+            <%= image_tag game.image.url if game.image? %>
+        </p>
+        <%= link_to "View Game", game_path(game) %>
+    <% end %>
+
+<br>

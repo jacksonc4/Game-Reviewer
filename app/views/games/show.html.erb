@@ -1,0 +1,18 @@
+<div class="col-md-8 col-md-offset-2">
+    <h1><%= @game.title %></h1>
+    <p>
+        <%= @game.description %><br>
+        <%= @game.rating %><br>
+        <%= image_tag @game.image.url if @game.image? %>
+    </p>
+
+
+    <%= link_to "Edit", edit_game_path(@game) %> |
+    <%= link_to "Delete", game_path(@game), method: :delete, data: { confirm: "Are you sure?" } %>
+
+    <h3>Reviews:</h3>
+        <%= render @game.comments %>
+
+    <h4>Review this Game!</h4>
+        <%= render 'comments/form' %> 
+</div>

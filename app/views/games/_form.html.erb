@@ -1,0 +1,7 @@
+<%= simple_form_for @game do |f| %>
+  <%= f.input :title, label: "Game Title" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.label :box_art, "Box Art" %>
+  <%= f.file_field :image %><br>
+  <%= f.button :submit %>
+<% end %>
