@@ -8,17 +8,9 @@ class CommentsController < ApplicationController
         @comment.user_id = current_user.id
 
         if @comment.save
-            @sum = @game.rating
-            
-            for comment in @game.comments
-                puts "Comment rating: #{comment.rating}"
-                @sum += comment.rating
-            end
-
-            @average_rating = @sum / (@game.comments.count + 1)
+            get_average
             @game.rating = @average_rating
             @game.save
-            puts "Current game object: #{@game.rating}"
             
             redirect_to game_path(@game)
         else
@@ -33,17 +25,9 @@ class CommentsController < ApplicationController
 
     def update
         if @comment.update(comment_params)
-            @sum = @game.rating
-            
-            for comment in @game.comments
-                puts "Comment rating: #{comment.rating}"
-                @sum += comment.rating
-            end
-
-            @average_rating = @sum / (@game.comments.count + 1)
+            get_average
             @game.rating = @average_rating
             @game.save
-            puts "Current game object: #{@game.rating}"
              
             redirect_to game_path(@game)
         else
@@ -56,17 +40,9 @@ class CommentsController < ApplicationController
         @comment.destroy
 
         if @comment.destroy
-            @sum = @game.rating
-            
-            for comment in @game.comments
-                puts "Comment rating: #{comment.rating}"
-                @sum += comment.rating
-            end
-
-            @average_rating = @sum / (@game.comments.count + 1)
+            get_average
             @game.rating = @average_rating
             @game.save
-            puts "Current game object: #{@game.rating}"
 
         end
 
@@ -85,6 +61,16 @@ class CommentsController < ApplicationController
 
     def find_comment
         @comment = @game.comments.find(params[:id])
+    end
+
+    def get_average
+        @sum = 0
+        for comment in @game.comments
+            @sum += comment.rating
+        end
+
+        @average_rating = @sum / (@game.comments.count)
+        
     end
 
 end

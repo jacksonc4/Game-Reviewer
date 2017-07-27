@@ -1,18 +1,49 @@
-<div class="col-md-8 col-md-offset-2">
-    <h1><%= @game.title %></h1>
-    <p>
-        <%= @game.description %><br>
-        <%= @game.rating %><br>
-        <%= image_tag @game.image.url if @game.image? %>
-    </p>
-
-
-    <%= link_to "Edit", edit_game_path(@game) %> |
-    <%= link_to "Delete", game_path(@game), method: :delete, data: { confirm: "Are you sure?" } %>
-
-    <h3>Reviews:</h3>
-        <%= render @game.comments %>
-
-    <h4>Review this Game!</h4>
-        <%= render 'comments/form' %> 
+<div class="row">
+    <div class="col-md-4">
+        <%= image_tag @game.image.url, class: "game-show" %>
+    </div>
+    <div class="col-md-8">
+        <div class="game-info">
+            <h1 class="game-title"><%= @game.title %></h1>
+            <h4 class="avg-rating">Average Rating</h4>
+            <div class="comment-rating" data-score="<%= @game.rating %>"></div>
+            <span class="number-of-reviews">(Based on <%= @game.comments.count %> reviews)</span><br>
+            <p class="game-desc"><%= @game.description %></p>
+                
+            <div class="links btn-group">
+                <% if user_signed_in? %>
+                    <%= link_to "Edit", edit_game_path(@game), class: "btn btn-custom" %>
+                    <%= link_to "Delete", game_path(@game), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="reviews">
+            <% if @game.comments.count == 0 %>
+                <h1>No Reviews Yet!</h1>
+            <% else %>
+                <h1>Reviews:</h1>
+                <%= render @game.comments %>
+            <% end %>
+
+            <h4>Review this Game!</h4>
+                <%= render 'comments/form' %>
+                
+        </div>
+    </div>
+</div>
+
+<script src="../../assets/javascripts/jquery.raty.js"></script>
+<script>
+    $('.comment-rating').raty({
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        },
+        path: '/assets/'
+    });
+</script>

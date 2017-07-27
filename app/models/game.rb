@@ -3,5 +3,4 @@ class Game < ApplicationRecord
     validates :image, presence: true
     mount_uploader :image, BoxArtUploader
     has_many :comments
-
 end

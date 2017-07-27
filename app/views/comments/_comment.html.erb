@@ -1,12 +1,14 @@
-<h4>Rating: <%= comment.rating %></h4>
-<p>Posted by: <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago.</p>
-<p><%= comment.content %></p>
+<div class="rating">
+    <div class="comment-rating" data-score="<%= comment.rating %>"></div>
+    <p>Posted by: <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago.</p>
+    <p><%= comment.content %></p>
 
-<div class="links">
-    <% if user_signed_in? %>
-        <% if comment.user_id == current_user.id %>
-            <%= link_to "Edit", edit_game_comment_path(comment.game, comment) %>
-            <%= link_to "Delete", game_comment_path(comment.game, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="links">
+        <% if user_signed_in? %>
+            <% if comment.user_id == current_user.id %>
+                <%= link_to "Edit", edit_game_comment_path(comment.game, comment) %>
+                <%= link_to "Delete", game_comment_path(comment.game, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
 </div>

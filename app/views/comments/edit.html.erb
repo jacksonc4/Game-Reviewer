@@ -1,6 +1,16 @@
 <h1>Edit Comment</h1>
 <%= simple_form_for([@game, @comment]) do |f| %>
-    <%= f.input :rating, label: "Edit Rating" %>
+    <div id="rating-form">
+        <label> Rating </label>
+    </div>
     <%= f.input :content, label: "Comment" %>
     <%= f.button :submit %>
 <% end %>
+
+<script src="../../assets/javascripts/jquery.raty.js"></script>
+<script>
+    $('#rating-form').raty({
+        path: '/assets/',
+        scoreName: 'comment[rating]'
+});
+</script>
