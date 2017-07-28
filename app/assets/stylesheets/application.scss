@@ -23,7 +23,8 @@
 	box-sizing: border-box;
 	background-color: #fff;
 	border-radius: 5px;
-	box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    margin-bottom: 15px;
 	padding: 1.5em 1.25em;
 }
 
@@ -132,7 +133,7 @@ p.alert, p.notice {
 
 }
 
-.book-links {
+.game-links {
 
 	.btn-custom {
 		padding: 3px 10px;
@@ -145,7 +146,7 @@ p.alert, p.notice {
 /* Book styles */
 
 .game {
-	height: auto;
+	height: 325px;
 	width: 250px;
 	margin-bottom: 40px;
 	@include background-tile;
@@ -153,7 +154,7 @@ p.alert, p.notice {
 
 .game-show {
 	height: auto;
-	width: 325px;
+	width: 350px;
 	@include background-tile;
 }
 
@@ -226,7 +227,7 @@ p.alert, p.notice {
 
 /* New Book Form styles */
 
-.new-book-form {
+.new-game-form {
 	@include background-tile;
 
 	h1 {
@@ -237,16 +238,16 @@ p.alert, p.notice {
 		margin-bottom: 10px;
 	}
 
-	#book_book_img {
+	#game_game_img {
 		margin-bottom: 10px;
 	}
 
 }
 
 
-/* Edit Book Form styles */
+/* Edit Game Form styles */
 
-.edit-book-form {
+.edit-game-form {
 
 	@include background-tile;
 
@@ -254,11 +255,11 @@ p.alert, p.notice {
 		margin-top: 0;
 	}
 
-	#book_category_id {
+	#game_category_id {
 		margin-bottom: 10px;
 	}
 
-	#book_book_img {
+	#game_game_img {
 		margin-bottom: 10px;
 	}
 

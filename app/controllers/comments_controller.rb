@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
             
             redirect_to game_path(@game)
         else
-            render 'new'
+            redirect_to game_path(@game)
         end
 
     end
@@ -37,8 +37,6 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment.destroy
-
         if @comment.destroy
             get_average
             @game.rating = @average_rating
@@ -69,7 +67,11 @@ class CommentsController < ApplicationController
             @sum += comment.rating
         end
 
-        @average_rating = @sum / (@game.comments.count)
+        if @game.comments.count > 1
+            @average_rating = @sum / (@game.comments.count)
+        else
+            @average_rating = @sum
+        end
         
     end
 

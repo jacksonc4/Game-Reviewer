@@ -3,7 +3,6 @@
   <head>
     <title>Game Reviewer</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,9 +24,9 @@
           <% end %>
         </ul>
 
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
           <p><%= link_to "New Game", new_game_path, class: "navbar-right navbar-text navbar-link" %></p>
-          <% end %>
+        <% end %>
 
       </div>
     </div>
