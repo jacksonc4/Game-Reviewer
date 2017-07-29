@@ -5,6 +5,6 @@ class Game < ApplicationRecord
     has_many :comments
 
     def self.search(search)
-        where("title LIKE ?", "%#{search}%")
+        where("title LIKE ?", "%#{search}%") # the 'where' statement handles the rest of the syntax for a SQL query here
     end
 end

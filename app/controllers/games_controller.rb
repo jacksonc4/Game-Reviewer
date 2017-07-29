@@ -2,6 +2,7 @@ class GamesController < ApplicationController
     before_action :find_game, only: [:show, :update, :edit, :destroy]
 
     def index
+        # show all games unless a search parameter is recieved, if one is then show results
         @games = Game.all
         if params[:search]
             @games = Game.search(params[:search]).order("created_at DESC")
