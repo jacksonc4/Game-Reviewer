@@ -8,8 +8,8 @@
             <h4 class="avg-rating">Average Rating</h4>
             <div class="comment-rating" data-score="<%= @game.rating %>"></div>
             <span class="number-of-reviews">(Based on <%= @game.comments.count %> reviews)</span><br>
-            <p class="game-desc"><%= @game.description %></p>
-                
+            <p class="game-desc"><%= @game.description %></p><br>
+            <p>< This is where the screenshots will be ></p><br>
             <div class="links btn-group">
                 <% if user_signed_in? %>
                     <%= link_to "Edit", edit_game_path(@game), class: "btn btn-custom" %>
