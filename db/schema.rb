@@ -14,11 +14,11 @@ ActiveRecord::Schema.define(version: 20170727141700) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
+    t.integer "rating", default: 3
     t.bigint "game_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rating", default: 3
     t.index ["game_id"], name: "index_comments_on_game_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

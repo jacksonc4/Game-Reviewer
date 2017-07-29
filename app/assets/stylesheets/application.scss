@@ -109,6 +109,21 @@ p.alert, p.notice {
 	}
 }
 
+.btn-custom-navbar {
+	color: darken(#f1c40f, 5%);
+	background-color: #fff;
+	border: 1px solid darken(#f1c40f, 5%);
+	padding: 6px 18px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken(#f1c40f, 5%);
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+
 .btn-custom2 {
 	color: #333;
 	background-color: #fff;

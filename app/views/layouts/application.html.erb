@@ -24,6 +24,19 @@
           <% end %>
         </ul>
 
+        <div class="col-sm-3 col-md-3 pull-right">
+          <%= form_tag games_path, method: "get", class: "navbar-form", role: "search" do %>
+            <div class="input-group">
+              <%= text_field_tag :query, params[:query], size: 150, placeholder: "Search Games", class: "form-control" %>
+                <div class="input-group-btn">
+                  <%= button_tag type: "submit", class: "btn btn-custom-navbar" do %>
+                    <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </div>
+            </div>
+          <% end %>
+        </div>
+
         <% if user_signed_in? %>
           <p><%= link_to "New Game", new_game_path, class: "navbar-right navbar-text navbar-link" %></p>
         <% end %>
