@@ -1,24 +1,14 @@
-# README
+# Game Reviewer App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Made with Ruby on Rails using MySQL. Game screenshots section in the 'show game' page and user privilege escalation coming soon.
 
-Things you may want to cover:
+## Screenshots
+![Screenshot](screenshots/1_main_page.png)
 
-* Ruby version
+![Screenshot](screenshots/2_login_page.png)
 
-* System dependencies
+![Screenshot](screenshots/3_main_page_logged-in.png)
 
-* Configuration
+![Screenshot](screenshots/4_show_game(1).png)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Screenshot](screenshots/5_show_game(2).png)
