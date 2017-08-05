@@ -1,6 +1,15 @@
 <div class="row">
     <div class="col-md-4">
         <%= image_tag @game.image.url, class: "game-show" %>
+        <div class="text-center">
+            <div class="links btn-group">
+                <% if user_signed_in? %>
+                    <%= link_to "Edit", edit_game_path(@game), class: "btn btn-custom" %>
+                    <%= link_to "Delete", game_path(@game), method: :delete,
+                        data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+                <% end %>
+            </div>
+        </div>
     </div>
     <div class="col-md-8">
         <div class="game-info">
@@ -8,14 +17,23 @@
             <h4 class="avg-rating">Average Rating</h4>
             <div class="comment-rating" data-score="<%= @game.rating %>"></div>
             <span class="number-of-reviews">(Based on <%= @game.comments.count %> reviews)</span><br>
-            <p class="game-desc"><%= @game.description %></p><br>
-            <p>< This is where the screenshots will be ></p><br>
-            <div class="links btn-group">
-                <% if user_signed_in? %>
-                    <%= link_to "Edit", edit_game_path(@game), class: "btn btn-custom" %>
-                    <%= link_to "Delete", game_path(@game), method: :delete,
-                        data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
-                <% end %>
+            <p class="game-desc"><%= @game.description %></p>
+            <div class="screenshots">
+                <h2 class="text-center">Screenshots</h2>
+                    <% if @game.screenshots.count > 0 %>
+                        <a href="/games/<%= @game.id %>/screenshots">
+                            <%= render 'screenshots' %>
+                        </a>
+                    <% else %>
+                        <p class="text-center">No screenshots yet!</p>
+                    <% end %> 
+                <div class="text-center">
+                    <% if user_signed_in? %>
+                        <%= link_to new_game_screenshot_path(@game), class: "btn btn-custom" do %>
+                            <i class="glyphicon glyphicon-plus"></i>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
@@ -38,6 +56,7 @@
     </div>
 </div>
 
+<!-- Raty JQuery Script -->
 <script src="../../assets/javascripts/jquery.raty.js"></script>
 <script>
     $('.comment-rating').raty({

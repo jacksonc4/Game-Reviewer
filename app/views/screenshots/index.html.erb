@@ -1,0 +1,22 @@
+<h1>Screenshots: 
+    <a href="/games/<%= @game.id %>">
+        <%= @game.title %>
+    </a>
+</h1>
+
+<% if @screenshots.count > 0 %>
+    <% @screenshots.each do |screenshot| %>
+        <div class="screenshot-border">
+            <div class="pull-left">
+                <h3><%= screenshot.title %></h3>
+            </div>
+            <%= image_tag screenshot.image.url, class: "screenshot-show" %>
+            <%= link_to game_screenshot_path(screenshot.game, screenshot), method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-custom3" do %>
+                    <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+        </div>
+    <% end %>
+<% else %>
+    <h2>No Screenshots Yet!</h2>
+<% end %>
