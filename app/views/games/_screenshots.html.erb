@@ -2,7 +2,7 @@
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <% @game.screenshots.each_with_index do |screenshot, i| %>
-        <li data-target="#myCarousel" data-slide-to="<%= i %>" class="<% i == 0 ? 'active' : '' %>"></li>
+        <li data-target="#myCarousel" data-slide-to="<%= i %>" class="<% if i == 0 %>active<% end %>"></li>
       <% end %>
     </ol>
 

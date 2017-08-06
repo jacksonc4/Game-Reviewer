@@ -11,9 +11,11 @@
                 <h3><%= screenshot.title %></h3>
             </div>
             <%= image_tag screenshot.image.url, class: "screenshot-show" %>
-            <%= link_to game_screenshot_path(screenshot.game, screenshot), method: :delete,
-                data: { confirm: "Are you sure?" }, class: "btn btn-custom3" do %>
-                    <i class="glyphicon glyphicon-trash"></i>
+            <% if user_signed_in? %>
+                <%= link_to game_screenshot_path(screenshot.game, screenshot), method: :delete,
+                    data: { confirm: "Are you sure?" }, class: "btn btn-custom3" do %>
+                        <i class="glyphicon glyphicon-trash"></i>
+                    <% end %>
             <% end %>
         </div>
     <% end %>
