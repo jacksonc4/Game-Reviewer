@@ -1,6 +1,6 @@
 # Game Reviewer App
 
-Made with Ruby on Rails using MySQL. Game screenshots section in the 'show game' page and user privilege escalation coming soon.
+Made with Ruby on Rails using MySQL. User privilege escalation coming soon.
 
 ## Screenshots
 ![Screenshot](screenshots/1_main_page.png)
@@ -9,6 +9,8 @@ Made with Ruby on Rails using MySQL. Game screenshots section in the 'show game'
 
 ![Screenshot](screenshots/3_main_page_logged-in.png)
 
-![Screenshot](screenshots/4_show_game(1).png)
+![Screenshot](screenshots/updated_show_page(1).png)
 
-![Screenshot](screenshots/5_show_game(2).png)
+![Screenshot](screenshots/updated_show_page(2).png)
+
+![Screenshot](screenshots/screenshots_page.png)
